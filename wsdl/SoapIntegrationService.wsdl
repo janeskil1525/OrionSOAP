@@ -1,0 +1,1759 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:i0="http://opencarpartinterface.org/2011/09" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" name="SoapIntegrationService" targetNamespace="http://tempuri.org/">
+    <wsp:Policy wsu:Id="WSHttpBinding_ISoapIntegrationService_policy">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <wsaw:UsingAddressing/>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsp:Policy wsu:Id="WSHttpBinding_ISoapIntegrationService1_policy">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+                    <wsp:Policy>
+                        <sp:TransportToken>
+                            <wsp:Policy>
+                                <sp:HttpsToken RequireClientCertificate="false"/>
+                            </wsp:Policy>
+                        </sp:TransportToken>
+                        <sp:AlgorithmSuite>
+                            <wsp:Policy>
+                                <sp:Basic256/>
+                            </wsp:Policy>
+                        </sp:AlgorithmSuite>
+                        <sp:Layout>
+                            <wsp:Policy>
+                                <sp:Strict/>
+                            </wsp:Policy>
+                        </sp:Layout>
+                    </wsp:Policy>
+                </sp:TransportBinding>
+                <wsaw:UsingAddressing/>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsdl:import namespace="http://opencarpartinterface.org/2011/09" location="http://fenixws2.laga.se/fenixws/SoapIntegrationservice.svc?wsdl=wsdl0"/>
+    <wsdl:types/>
+    <wsdl:binding name="WSHttpBinding_ISoapIntegrationService" type="i0:ISoapIntegrationService">
+        <wsp:PolicyReference URI="#WSHttpBinding_ISoapIntegrationService_policy"/>
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="SavePart">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SavePart" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_SavePart_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SaveParts">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveParts" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_SaveParts_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SavePartsImport">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SavePartsImport" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_SavePartsImport_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RemovePart">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/RemovePart" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_RemovePart_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CountChangedParts">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/CountChangedParts" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_CountChangedParts_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindChangedParts">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindChangedParts" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindChangedParts_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindChangedPartReports">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindChangedPartReports" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindChangedPartReports_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindChangedConnectedParts">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindChangedConnectedParts" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindChangedConnectedParts_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindDeletedConnectedParts">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindDeletedConnectedParts" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindDeletedConnectedParts_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindDeletedParts">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindDeletedParts" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindDeletedParts_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SavePartPhoto">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SavePartPhoto" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_SavePartPhoto_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RemovePartPhoto">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/RemovePartPhoto" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_RemovePartPhoto_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindChangedPartPhotos">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindChangedPartPhotos" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindChangedPartPhotos_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindDeletedPartPhotos">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindDeletedPartPhotos" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindDeletedPartPhotos_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="UploadPartPhoto">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/UploadPartPhoto" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_UploadPartPhoto_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="DownloadPartPhoto">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/DownloadPartPhoto" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_DownloadPartPhoto_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SaveCar">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveCar" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_SaveCar_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SaveCars">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveCars" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_SaveCars_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetCar">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetCar" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_GetCar_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RemoveCar">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/RemoveCar" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_RemoveCar_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindChangedCars">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindChangedCars" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindChangedCars_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindDeletedCars">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindDeletedCars" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindDeletedCars_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="UploadCarPhoto">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/UploadCarPhoto" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_UploadCarPhoto_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="DownloadCarPhoto">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/DownloadCarPhoto" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_DownloadCarPhoto_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SaveCarPhoto">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveCarPhoto" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_SaveCarPhoto_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RemoveCarPhoto">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/RemoveCarPhoto" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_RemoveCarPhoto_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindChangedCarPhotos">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindChangedCarPhotos" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindChangedCarPhotos_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindDeletedCarPhotos">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindDeletedCarPhotos" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindDeletedCarPhotos_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SaveReservations">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveReservations" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_SaveReservations_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SaveReservationsEx">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveReservationsEx" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_SaveReservationsEx_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RemoveReservations">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/RemoveReservations" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_RemoveReservations_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RemoveReservationsEx">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/RemoveReservationsEx" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_RemoveReservationsEx_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SaveOrder">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveOrder" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_SaveOrder_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SaveOrderEx">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveOrderEx" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_SaveOrderEx_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SaveSubOrder">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveSubOrder" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_SaveSubOrder_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SaveSubOrderEx">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveSubOrderEx" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_SaveSubOrderEx_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SaveOrderPaymentReference">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveOrderPaymentReference" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_SaveOrderPaymentReference_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ShipOrderRowsEx">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/ShipOrderRowsEx" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_ShipOrderRowsEx_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ShipOrderEx">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/ShipOrderEx" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_ShipOrderEx_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SetParcelNumbers">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SetParcelNumbers" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_SetParcelNumbers_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ArchiveOrder">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/ArchiveOrder" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_ArchiveOrder_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ArchiveOrderEx">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/ArchiveOrderEx" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_ArchiveOrderEx_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="OrdersToArchive">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/OrdersToArchive" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_OrdersToArchive_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CanArchiveOrder">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/CanArchiveOrder" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_CanArchiveOrder_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetOrder">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetOrder" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_GetOrder_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetSubOrder">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetSubOrder" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_GetSubOrder_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="OrderExists">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/OrderExists" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_OrderExists_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RemoveOrder">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/RemoveOrder" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_RemoveOrder_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RemoveOrderEx">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/RemoveOrderEx" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_RemoveOrderEx_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Test">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/Test" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_Test_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindPartReports">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartReports" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindPartReports_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindPartReportsEx">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartReportsEx" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindPartReportsEx_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindPartReportsExOr">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartReportsExOr" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindPartReportsExOr_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindPartReportsExFreetext">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartReportsExFreetext" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindPartReportsExFreetext_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindPartReportsExOrFreetext">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartReportsExOrFreetext" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindPartReportsExOrFreetext_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindPartnersWithParts">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartnersWithParts" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindPartnersWithParts_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindParts">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindParts" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindParts_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetPart">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetPart" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_GetPart_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindPartsEx">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartsEx" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindPartsEx_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindPartPhotos">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartPhotos" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindPartPhotos_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindCarReports">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindCarReports" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindCarReports_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindCars">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindCars" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindCars_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindCarPhotos">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindCarPhotos" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindCarPhotos_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindOrders">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindOrders" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindOrders_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindArchiveOrders">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindArchiveOrders" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindArchiveOrders_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindOrderStatuses">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindOrderStatuses" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindOrderStatuses_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindPartners">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartners" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindPartners_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetBilkoder">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetBilkoder" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_GetBilkoder_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetBilkodsnamn">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetBilkodsnamn" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_GetBilkodsnamn_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetDelkoder">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetDelkoder" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_GetDelkoder_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetDelkodsnamn">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetDelkodsnamn" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_GetDelkodsnamn_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetFBSynkAvds">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetFBSynkAvds" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_GetFBSynkAvds_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetDelkodsStatus">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetDelkodsStatus" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_GetDelkodsStatus_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetDelkodsStatusEx">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetDelkodsStatusEx" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_GetDelkodsStatusEx_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindChangedPartKeys">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindChangedPartKeys" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindChangedPartKeys_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindDeletedPartKeys">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindDeletedPartKeys" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindDeletedPartKeys_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindChangedCarKeys">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindChangedCarKeys" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindChangedCarKeys_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetFolksamCom">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetFolksamCom" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_GetFolksamCom_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CreateFolksamCom">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/CreateFolksamCom" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_CreateFolksamCom_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindFolksamComs">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindFolksamComs" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindFolksamComs_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SaveFolksamComAsProcessed">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveFolksamComAsProcessed" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_SaveFolksamComAsProcessed_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="DeleteDelartArchiveById">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/DeleteDelartArchiveById" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_DeleteDelartArchiveById_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="TestCurrentLoad">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/TestCurrentLoad" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_TestCurrentLoad_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetPartStatuses">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetPartStatuses" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_GetPartStatuses_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SendOrdersToPartners">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SendOrdersToPartners" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_SendOrdersToPartners_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="WSHttpBinding_ISoapIntegrationService1" type="i0:ISoapIntegrationService">
+        <wsp:PolicyReference URI="#WSHttpBinding_ISoapIntegrationService1_policy"/>
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="SavePart">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SavePart" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_SavePart_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SaveParts">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveParts" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_SaveParts_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SavePartsImport">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SavePartsImport" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_SavePartsImport_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RemovePart">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/RemovePart" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_RemovePart_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CountChangedParts">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/CountChangedParts" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_CountChangedParts_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindChangedParts">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindChangedParts" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindChangedParts_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindChangedPartReports">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindChangedPartReports" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindChangedPartReports_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindChangedConnectedParts">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindChangedConnectedParts" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindChangedConnectedParts_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindDeletedConnectedParts">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindDeletedConnectedParts" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindDeletedConnectedParts_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindDeletedParts">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindDeletedParts" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindDeletedParts_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SavePartPhoto">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SavePartPhoto" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_SavePartPhoto_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RemovePartPhoto">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/RemovePartPhoto" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_RemovePartPhoto_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindChangedPartPhotos">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindChangedPartPhotos" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindChangedPartPhotos_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindDeletedPartPhotos">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindDeletedPartPhotos" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindDeletedPartPhotos_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="UploadPartPhoto">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/UploadPartPhoto" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_UploadPartPhoto_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="DownloadPartPhoto">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/DownloadPartPhoto" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_DownloadPartPhoto_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SaveCar">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveCar" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_SaveCar_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SaveCars">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveCars" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_SaveCars_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetCar">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetCar" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_GetCar_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RemoveCar">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/RemoveCar" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_RemoveCar_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindChangedCars">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindChangedCars" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindChangedCars_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindDeletedCars">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindDeletedCars" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindDeletedCars_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="UploadCarPhoto">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/UploadCarPhoto" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_UploadCarPhoto_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="DownloadCarPhoto">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/DownloadCarPhoto" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_DownloadCarPhoto_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SaveCarPhoto">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveCarPhoto" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_SaveCarPhoto_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RemoveCarPhoto">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/RemoveCarPhoto" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_RemoveCarPhoto_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindChangedCarPhotos">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindChangedCarPhotos" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindChangedCarPhotos_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindDeletedCarPhotos">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindDeletedCarPhotos" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindDeletedCarPhotos_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SaveReservations">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveReservations" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_SaveReservations_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SaveReservationsEx">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveReservationsEx" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_SaveReservationsEx_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RemoveReservations">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/RemoveReservations" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_RemoveReservations_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RemoveReservationsEx">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/RemoveReservationsEx" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_RemoveReservationsEx_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SaveOrder">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveOrder" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_SaveOrder_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SaveOrderEx">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveOrderEx" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_SaveOrderEx_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SaveSubOrder">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveSubOrder" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_SaveSubOrder_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SaveSubOrderEx">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveSubOrderEx" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_SaveSubOrderEx_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SaveOrderPaymentReference">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveOrderPaymentReference" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_SaveOrderPaymentReference_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ShipOrderRowsEx">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/ShipOrderRowsEx" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_ShipOrderRowsEx_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ShipOrderEx">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/ShipOrderEx" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_ShipOrderEx_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SetParcelNumbers">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SetParcelNumbers" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_SetParcelNumbers_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ArchiveOrder">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/ArchiveOrder" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_ArchiveOrder_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ArchiveOrderEx">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/ArchiveOrderEx" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_ArchiveOrderEx_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="OrdersToArchive">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/OrdersToArchive" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_OrdersToArchive_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CanArchiveOrder">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/CanArchiveOrder" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_CanArchiveOrder_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetOrder">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetOrder" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_GetOrder_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetSubOrder">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetSubOrder" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_GetSubOrder_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="OrderExists">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/OrderExists" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_OrderExists_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RemoveOrder">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/RemoveOrder" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_RemoveOrder_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RemoveOrderEx">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/RemoveOrderEx" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_RemoveOrderEx_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Test">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/Test" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_Test_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindPartReports">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartReports" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindPartReports_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindPartReportsEx">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartReportsEx" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindPartReportsEx_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindPartReportsExOr">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartReportsExOr" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindPartReportsExOr_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindPartReportsExFreetext">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartReportsExFreetext" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindPartReportsExFreetext_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindPartReportsExOrFreetext">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartReportsExOrFreetext" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindPartReportsExOrFreetext_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindPartnersWithParts">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartnersWithParts" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindPartnersWithParts_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindParts">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindParts" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindParts_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetPart">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetPart" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_GetPart_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindPartsEx">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartsEx" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindPartsEx_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindPartPhotos">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartPhotos" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindPartPhotos_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindCarReports">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindCarReports" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindCarReports_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindCars">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindCars" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindCars_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindCarPhotos">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindCarPhotos" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindCarPhotos_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindOrders">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindOrders" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindOrders_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindArchiveOrders">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindArchiveOrders" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindArchiveOrders_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindOrderStatuses">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindOrderStatuses" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindOrderStatuses_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindPartners">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartners" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindPartners_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetBilkoder">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetBilkoder" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_GetBilkoder_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetBilkodsnamn">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetBilkodsnamn" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_GetBilkodsnamn_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetDelkoder">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetDelkoder" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_GetDelkoder_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetDelkodsnamn">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetDelkodsnamn" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_GetDelkodsnamn_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetFBSynkAvds">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetFBSynkAvds" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_GetFBSynkAvds_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetDelkodsStatus">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetDelkodsStatus" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_GetDelkodsStatus_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetDelkodsStatusEx">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetDelkodsStatusEx" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_GetDelkodsStatusEx_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindChangedPartKeys">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindChangedPartKeys" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindChangedPartKeys_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindDeletedPartKeys">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindDeletedPartKeys" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindDeletedPartKeys_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindChangedCarKeys">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindChangedCarKeys" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindChangedCarKeys_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetFolksamCom">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetFolksamCom" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_GetFolksamCom_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CreateFolksamCom">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/CreateFolksamCom" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_CreateFolksamCom_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FindFolksamComs">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindFolksamComs" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_FindFolksamComs_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SaveFolksamComAsProcessed">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveFolksamComAsProcessed" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_SaveFolksamComAsProcessed_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="DeleteDelartArchiveById">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/DeleteDelartArchiveById" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_DeleteDelartArchiveById_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="TestCurrentLoad">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/TestCurrentLoad" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_TestCurrentLoad_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetPartStatuses">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetPartStatuses" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_GetPartStatuses_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SendOrdersToPartners">
+            <soap12:operation soapAction="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SendOrdersToPartners" style="document"/>
+            <wsdl:input>
+                <soap12:header message="i0:ISoapIntegrationService_SendOrdersToPartners_InputMessage_Headers" part="AuthenticationHeader" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="SoapIntegrationService">
+        <wsdl:port name="WSHttpBinding_ISoapIntegrationService" binding="tns:WSHttpBinding_ISoapIntegrationService">
+            <soap12:address location="http://fenixws2.laga.se/fenixws/SoapIntegrationservice.svc"/>
+            <wsa10:EndpointReference>
+                <wsa10:Address>http://fenixws2.laga.se/fenixws/SoapIntegrationService.svc</wsa10:Address>
+            </wsa10:EndpointReference>
+        </wsdl:port>
+        <wsdl:port name="WSHttpBinding_ISoapIntegrationService1" binding="tns:WSHttpBinding_ISoapIntegrationService1">
+            <soap12:address location="http://fenixws2.laga.se/fenixws/SoapIntegrationservice.svc"/>
+            <wsa10:EndpointReference>
+                <wsa10:Address>https://localhost/fenixws/SoapIntegrationService.svc</wsa10:Address>
+            </wsa10:EndpointReference>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
