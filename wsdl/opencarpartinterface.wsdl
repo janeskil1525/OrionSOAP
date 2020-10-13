@@ -1,0 +1,1183 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://opencarpartinterface.org/2011/09" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://opencarpartinterface.org/2011/09">
+    <wsdl:types>
+        <xsd:schema targetNamespace="http://opencarpartinterface.org/2011/09/Imports">
+            <xsd:import schemaLocation="http://testws.bosab.se/SoapIntegrationservice.svc?xsd=xsd1" namespace="http://opencarpartinterface.org/2011/09"/>
+            <xsd:import schemaLocation="http://testws.bosab.se/SoapIntegrationservice.svc?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+            <xsd:import schemaLocation="http://testws.bosab.se/SoapIntegrationservice.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Fenix.Services.Integration.Entities"/>
+            <xsd:import schemaLocation="http://testws.bosab.se/SoapIntegrationservice.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Fenix.Services.Linq"/>
+            <xsd:import schemaLocation="http://testws.bosab.se/SoapIntegrationservice.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="ISoapIntegrationService_SavePart_InputMessage">
+        <wsdl:part name="parameters" element="tns:SavePart"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SavePart_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SavePart_OutputMessage">
+        <wsdl:part name="parameters" element="tns:SavePartResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveParts_InputMessage">
+        <wsdl:part name="parameters" element="tns:SaveParts"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveParts_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveParts_OutputMessage">
+        <wsdl:part name="parameters" element="tns:SavePartsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_RemovePart_InputMessage">
+        <wsdl:part name="parameters" element="tns:RemovePart"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_RemovePart_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_RemovePart_OutputMessage">
+        <wsdl:part name="parameters" element="tns:RemovePartResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_CountChangedParts_InputMessage">
+        <wsdl:part name="parameters" element="tns:CountChangedParts"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_CountChangedParts_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_CountChangedParts_OutputMessage">
+        <wsdl:part name="parameters" element="tns:CountChangedPartsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindChangedParts_InputMessage">
+        <wsdl:part name="parameters" element="tns:FindChangedParts"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindChangedParts_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindChangedParts_OutputMessage">
+        <wsdl:part name="parameters" element="tns:FindChangedPartsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindChangedPartReports_InputMessage">
+        <wsdl:part name="parameters" element="tns:FindChangedPartReports"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindChangedPartReports_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindChangedPartReports_OutputMessage">
+        <wsdl:part name="parameters" element="tns:FindChangedPartReportsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindChangedConnectedParts_InputMessage">
+        <wsdl:part name="parameters" element="tns:FindChangedConnectedParts"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindChangedConnectedParts_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindChangedConnectedParts_OutputMessage">
+        <wsdl:part name="parameters" element="tns:FindChangedConnectedPartsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindDeletedConnectedParts_InputMessage">
+        <wsdl:part name="parameters" element="tns:FindDeletedConnectedParts"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindDeletedConnectedParts_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindDeletedConnectedParts_OutputMessage">
+        <wsdl:part name="parameters" element="tns:FindDeletedConnectedPartsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindDeletedParts_InputMessage">
+        <wsdl:part name="parameters" element="tns:FindDeletedParts"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindDeletedParts_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindDeletedParts_OutputMessage">
+        <wsdl:part name="parameters" element="tns:FindDeletedPartsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SavePartPhoto_InputMessage">
+        <wsdl:part name="parameters" element="tns:SavePartPhoto"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SavePartPhoto_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SavePartPhoto_OutputMessage">
+        <wsdl:part name="parameters" element="tns:SavePartPhotoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_RemovePartPhoto_InputMessage">
+        <wsdl:part name="parameters" element="tns:RemovePartPhoto"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_RemovePartPhoto_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_RemovePartPhoto_OutputMessage">
+        <wsdl:part name="parameters" element="tns:RemovePartPhotoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindChangedPartPhotos_InputMessage">
+        <wsdl:part name="parameters" element="tns:FindChangedPartPhotos"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindChangedPartPhotos_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindChangedPartPhotos_OutputMessage">
+        <wsdl:part name="parameters" element="tns:FindChangedPartPhotosResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindDeletedPartPhotos_InputMessage">
+        <wsdl:part name="parameters" element="tns:FindDeletedPartPhotos"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindDeletedPartPhotos_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindDeletedPartPhotos_OutputMessage">
+        <wsdl:part name="parameters" element="tns:FindDeletedPartPhotosResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_UploadPartPhoto_InputMessage">
+        <wsdl:part name="parameters" element="tns:UploadPartPhoto"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_UploadPartPhoto_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_UploadPartPhoto_OutputMessage">
+        <wsdl:part name="parameters" element="tns:UploadPartPhotoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_DownloadPartPhoto_InputMessage">
+        <wsdl:part name="parameters" element="tns:DownloadPartPhoto"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_DownloadPartPhoto_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_DownloadPartPhoto_OutputMessage">
+        <wsdl:part name="parameters" element="tns:DownloadPartPhotoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveCar_InputMessage">
+        <wsdl:part name="parameters" element="tns:SaveCar"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveCar_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveCar_OutputMessage">
+        <wsdl:part name="parameters" element="tns:SaveCarResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveCars_InputMessage">
+        <wsdl:part name="parameters" element="tns:SaveCars"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveCars_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveCars_OutputMessage">
+        <wsdl:part name="parameters" element="tns:SaveCarsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetCar_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetCar"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetCar_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetCar_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetCarResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_RemoveCar_InputMessage">
+        <wsdl:part name="parameters" element="tns:RemoveCar"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_RemoveCar_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_RemoveCar_OutputMessage">
+        <wsdl:part name="parameters" element="tns:RemoveCarResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindChangedCars_InputMessage">
+        <wsdl:part name="parameters" element="tns:FindChangedCars"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindChangedCars_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindChangedCars_OutputMessage">
+        <wsdl:part name="parameters" element="tns:FindChangedCarsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindDeletedCars_InputMessage">
+        <wsdl:part name="parameters" element="tns:FindDeletedCars"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindDeletedCars_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindDeletedCars_OutputMessage">
+        <wsdl:part name="parameters" element="tns:FindDeletedCarsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_UploadCarPhoto_InputMessage">
+        <wsdl:part name="parameters" element="tns:UploadCarPhoto"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_UploadCarPhoto_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_UploadCarPhoto_OutputMessage">
+        <wsdl:part name="parameters" element="tns:UploadCarPhotoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_DownloadCarPhoto_InputMessage">
+        <wsdl:part name="parameters" element="tns:DownloadCarPhoto"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_DownloadCarPhoto_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_DownloadCarPhoto_OutputMessage">
+        <wsdl:part name="parameters" element="tns:DownloadCarPhotoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveCarPhoto_InputMessage">
+        <wsdl:part name="parameters" element="tns:SaveCarPhoto"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveCarPhoto_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveCarPhoto_OutputMessage">
+        <wsdl:part name="parameters" element="tns:SaveCarPhotoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_RemoveCarPhoto_InputMessage">
+        <wsdl:part name="parameters" element="tns:RemoveCarPhoto"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_RemoveCarPhoto_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_RemoveCarPhoto_OutputMessage">
+        <wsdl:part name="parameters" element="tns:RemoveCarPhotoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindChangedCarPhotos_InputMessage">
+        <wsdl:part name="parameters" element="tns:FindChangedCarPhotos"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindChangedCarPhotos_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindChangedCarPhotos_OutputMessage">
+        <wsdl:part name="parameters" element="tns:FindChangedCarPhotosResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindDeletedCarPhotos_InputMessage">
+        <wsdl:part name="parameters" element="tns:FindDeletedCarPhotos"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindDeletedCarPhotos_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindDeletedCarPhotos_OutputMessage">
+        <wsdl:part name="parameters" element="tns:FindDeletedCarPhotosResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveReservations_InputMessage">
+        <wsdl:part name="parameters" element="tns:SaveReservations"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveReservations_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveReservations_OutputMessage">
+        <wsdl:part name="parameters" element="tns:SaveReservationsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveReservationsEx_InputMessage">
+        <wsdl:part name="parameters" element="tns:SaveReservationsEx"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveReservationsEx_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveReservationsEx_OutputMessage">
+        <wsdl:part name="parameters" element="tns:SaveReservationsExResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_RemoveReservations_InputMessage">
+        <wsdl:part name="parameters" element="tns:RemoveReservations"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_RemoveReservations_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_RemoveReservations_OutputMessage">
+        <wsdl:part name="parameters" element="tns:RemoveReservationsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_RemoveReservationsEx_InputMessage">
+        <wsdl:part name="parameters" element="tns:RemoveReservationsEx"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_RemoveReservationsEx_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_RemoveReservationsEx_OutputMessage">
+        <wsdl:part name="parameters" element="tns:RemoveReservationsExResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveOrder_InputMessage">
+        <wsdl:part name="parameters" element="tns:SaveOrder"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveOrder_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveOrder_OutputMessage">
+        <wsdl:part name="parameters" element="tns:SaveOrderResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveOrderEx_InputMessage">
+        <wsdl:part name="parameters" element="tns:SaveOrderEx"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveOrderEx_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveOrderEx_OutputMessage">
+        <wsdl:part name="parameters" element="tns:SaveOrderExResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveSubOrder_InputMessage">
+        <wsdl:part name="parameters" element="tns:SaveSubOrder"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveSubOrder_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveSubOrder_OutputMessage">
+        <wsdl:part name="parameters" element="tns:SaveSubOrderResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveSubOrderEx_InputMessage">
+        <wsdl:part name="parameters" element="tns:SaveSubOrderEx"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveSubOrderEx_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveSubOrderEx_OutputMessage">
+        <wsdl:part name="parameters" element="tns:SaveSubOrderExResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveOrderPaymentReference_InputMessage">
+        <wsdl:part name="parameters" element="tns:SaveOrderPaymentReference"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveOrderPaymentReference_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveOrderPaymentReference_OutputMessage">
+        <wsdl:part name="parameters" element="tns:SaveOrderPaymentReferenceResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_ShipOrderRowsEx_InputMessage">
+        <wsdl:part name="parameters" element="tns:ShipOrderRowsEx"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_ShipOrderRowsEx_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_ShipOrderRowsEx_OutputMessage">
+        <wsdl:part name="parameters" element="tns:ShipOrderRowsExResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_ShipOrderEx_InputMessage">
+        <wsdl:part name="parameters" element="tns:ShipOrderEx"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_ShipOrderEx_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_ShipOrderEx_OutputMessage">
+        <wsdl:part name="parameters" element="tns:ShipOrderExResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SetParcelNumbers_InputMessage">
+        <wsdl:part name="parameters" element="tns:SetParcelNumbers"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SetParcelNumbers_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SetParcelNumbers_OutputMessage">
+        <wsdl:part name="parameters" element="tns:SetParcelNumbersResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_ArchiveOrder_InputMessage">
+        <wsdl:part name="parameters" element="tns:ArchiveOrder"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_ArchiveOrder_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_ArchiveOrder_OutputMessage">
+        <wsdl:part name="parameters" element="tns:ArchiveOrderResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_ArchiveOrderEx_InputMessage">
+        <wsdl:part name="parameters" element="tns:ArchiveOrderEx"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_ArchiveOrderEx_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_ArchiveOrderEx_OutputMessage">
+        <wsdl:part name="parameters" element="tns:ArchiveOrderExResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_OrdersToArchive_InputMessage">
+        <wsdl:part name="parameters" element="tns:OrdersToArchive"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_OrdersToArchive_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_OrdersToArchive_OutputMessage">
+        <wsdl:part name="parameters" element="tns:OrdersToArchiveResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_CanArchiveOrder_InputMessage">
+        <wsdl:part name="parameters" element="tns:CanArchiveOrder"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_CanArchiveOrder_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_CanArchiveOrder_OutputMessage">
+        <wsdl:part name="parameters" element="tns:CanArchiveOrderResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetOrder_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetOrder"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetOrder_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetOrder_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetOrderResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetSubOrder_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetSubOrder"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetSubOrder_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetSubOrder_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetSubOrderResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_OrderExists_InputMessage">
+        <wsdl:part name="parameters" element="tns:OrderExists"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_OrderExists_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_OrderExists_OutputMessage">
+        <wsdl:part name="parameters" element="tns:OrderExistsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_RemoveOrder_InputMessage">
+        <wsdl:part name="parameters" element="tns:RemoveOrder"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_RemoveOrder_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_RemoveOrder_OutputMessage">
+        <wsdl:part name="parameters" element="tns:RemoveOrderResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_RemoveOrderEx_InputMessage">
+        <wsdl:part name="parameters" element="tns:RemoveOrderEx"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_RemoveOrderEx_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_RemoveOrderEx_OutputMessage">
+        <wsdl:part name="parameters" element="tns:RemoveOrderExResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_Test_InputMessage">
+        <wsdl:part name="parameters" element="tns:Test"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_Test_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_Test_OutputMessage">
+        <wsdl:part name="parameters" element="tns:TestResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindPartReports_InputMessage">
+        <wsdl:part name="parameters" element="tns:FindPartReports"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindPartReports_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindPartReports_OutputMessage">
+        <wsdl:part name="parameters" element="tns:FindPartReportsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindPartReportsEx_InputMessage">
+        <wsdl:part name="parameters" element="tns:FindPartReportsEx"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindPartReportsEx_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindPartReportsEx_OutputMessage">
+        <wsdl:part name="parameters" element="tns:FindPartReportsExResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindPartReportsExOr_InputMessage">
+        <wsdl:part name="parameters" element="tns:FindPartReportsExOr"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindPartReportsExOr_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindPartReportsExOr_OutputMessage">
+        <wsdl:part name="parameters" element="tns:FindPartReportsExOrResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindPartReportsExFreetext_InputMessage">
+        <wsdl:part name="parameters" element="tns:FindPartReportsExFreetext"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindPartReportsExFreetext_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindPartReportsExFreetext_OutputMessage">
+        <wsdl:part name="parameters" element="tns:FindPartReportsExFreetextResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindPartReportsExOrFreetext_InputMessage">
+        <wsdl:part name="parameters" element="tns:FindPartReportsExOrFreetext"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindPartReportsExOrFreetext_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindPartReportsExOrFreetext_OutputMessage">
+        <wsdl:part name="parameters" element="tns:FindPartReportsExOrFreetextResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindPartnersWithParts_InputMessage">
+        <wsdl:part name="parameters" element="tns:FindPartnersWithParts"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindPartnersWithParts_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindPartnersWithParts_OutputMessage">
+        <wsdl:part name="parameters" element="tns:FindPartnersWithPartsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindParts_InputMessage">
+        <wsdl:part name="parameters" element="tns:FindParts"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindParts_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindParts_OutputMessage">
+        <wsdl:part name="parameters" element="tns:FindPartsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetPart_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetPart"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetPart_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetPart_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetPartResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindPartsEx_InputMessage">
+        <wsdl:part name="parameters" element="tns:FindPartsEx"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindPartsEx_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindPartsEx_OutputMessage">
+        <wsdl:part name="parameters" element="tns:FindPartsExResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindPartPhotos_InputMessage">
+        <wsdl:part name="parameters" element="tns:FindPartPhotos"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindPartPhotos_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindPartPhotos_OutputMessage">
+        <wsdl:part name="parameters" element="tns:FindPartPhotosResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindCarReports_InputMessage">
+        <wsdl:part name="parameters" element="tns:FindCarReports"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindCarReports_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindCarReports_OutputMessage">
+        <wsdl:part name="parameters" element="tns:FindCarReportsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindCars_InputMessage">
+        <wsdl:part name="parameters" element="tns:FindCars"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindCars_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindCars_OutputMessage">
+        <wsdl:part name="parameters" element="tns:FindCarsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindCarPhotos_InputMessage">
+        <wsdl:part name="parameters" element="tns:FindCarPhotos"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindCarPhotos_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindCarPhotos_OutputMessage">
+        <wsdl:part name="parameters" element="tns:FindCarPhotosResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindOrders_InputMessage">
+        <wsdl:part name="parameters" element="tns:FindOrders"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindOrders_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindOrders_OutputMessage">
+        <wsdl:part name="parameters" element="tns:FindOrdersResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindArchiveOrders_InputMessage">
+        <wsdl:part name="parameters" element="tns:FindArchiveOrders"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindArchiveOrders_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindArchiveOrders_OutputMessage">
+        <wsdl:part name="parameters" element="tns:FindArchiveOrdersResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindOrderStatuses_InputMessage">
+        <wsdl:part name="parameters" element="tns:FindOrderStatuses"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindOrderStatuses_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindOrderStatuses_OutputMessage">
+        <wsdl:part name="parameters" element="tns:FindOrderStatusesResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindPartners_InputMessage">
+        <wsdl:part name="parameters" element="tns:FindPartners"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindPartners_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindPartners_OutputMessage">
+        <wsdl:part name="parameters" element="tns:FindPartnersResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetBilkoder_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetBilkoder"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetBilkoder_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetBilkoder_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetBilkoderResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetBilkodsnamn_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetBilkodsnamn"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetBilkodsnamn_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetBilkodsnamn_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetBilkodsnamnResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetDelkoder_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetDelkoder"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetDelkoder_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetDelkoder_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetDelkoderResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetDelkodsnamn_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetDelkodsnamn"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetDelkodsnamn_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetDelkodsnamn_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetDelkodsnamnResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetFBSynkAvds_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetFBSynkAvds"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetFBSynkAvds_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetFBSynkAvds_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetFBSynkAvdsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetDelkodsStatus_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetDelkodsStatus"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetDelkodsStatus_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetDelkodsStatus_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetDelkodsStatusResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetDelkodsStatusEx_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetDelkodsStatusEx"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetDelkodsStatusEx_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetDelkodsStatusEx_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetDelkodsStatusExResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindChangedPartKeys_InputMessage">
+        <wsdl:part name="parameters" element="tns:FindChangedPartKeys"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindChangedPartKeys_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindChangedPartKeys_OutputMessage">
+        <wsdl:part name="parameters" element="tns:FindChangedPartKeysResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindDeletedPartKeys_InputMessage">
+        <wsdl:part name="parameters" element="tns:FindDeletedPartKeys"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindDeletedPartKeys_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindDeletedPartKeys_OutputMessage">
+        <wsdl:part name="parameters" element="tns:FindDeletedPartKeysResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindChangedCarKeys_InputMessage">
+        <wsdl:part name="parameters" element="tns:FindChangedCarKeys"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindChangedCarKeys_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindChangedCarKeys_OutputMessage">
+        <wsdl:part name="parameters" element="tns:FindChangedCarKeysResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetFolksamCom_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetFolksamCom"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetFolksamCom_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetFolksamCom_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetFolksamComResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_CreateFolksamCom_InputMessage">
+        <wsdl:part name="parameters" element="tns:CreateFolksamCom"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_CreateFolksamCom_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_CreateFolksamCom_OutputMessage">
+        <wsdl:part name="parameters" element="tns:CreateFolksamComResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindFolksamComs_InputMessage">
+        <wsdl:part name="parameters" element="tns:FindFolksamComs"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindFolksamComs_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindFolksamComs_OutputMessage">
+        <wsdl:part name="parameters" element="tns:FindFolksamComsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveFolksamComAsProcessed_InputMessage">
+        <wsdl:part name="parameters" element="tns:SaveFolksamComAsProcessed"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveFolksamComAsProcessed_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveFolksamComAsProcessed_OutputMessage">
+        <wsdl:part name="parameters" element="tns:SaveFolksamComAsProcessedResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_DeleteDelartArchiveById_InputMessage">
+        <wsdl:part name="parameters" element="tns:DeleteDelartArchiveById"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_DeleteDelartArchiveById_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_DeleteDelartArchiveById_OutputMessage">
+        <wsdl:part name="parameters" element="tns:DeleteDelartArchiveByIdResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_TestCurrentLoad_InputMessage">
+        <wsdl:part name="parameters" element="tns:TestCurrentLoad"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_TestCurrentLoad_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_TestCurrentLoad_OutputMessage">
+        <wsdl:part name="parameters" element="tns:TestCurrentLoadResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetPartStatuses_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetPartStatuses"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetPartStatuses_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_GetPartStatuses_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetPartStatusesResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SendOrdersToPartners_InputMessage">
+        <wsdl:part name="parameters" element="tns:SendOrdersToPartners"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SendOrdersToPartners_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SendOrdersToPartners_OutputMessage">
+        <wsdl:part name="parameters" element="tns:SendOrdersToPartnersResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SavePartsV2_InputMessage">
+        <wsdl:part name="parameters" element="tns:SavePartsV2"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SavePartsV2_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SavePartsV2_OutputMessage">
+        <wsdl:part name="parameters" element="tns:SavePartsV2Response"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_RemovePartV2_InputMessage">
+        <wsdl:part name="parameters" element="tns:RemovePartV2"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_RemovePartV2_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_RemovePartV2_OutputMessage">
+        <wsdl:part name="parameters" element="tns:RemovePartV2Response"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveCarV2_InputMessage">
+        <wsdl:part name="parameters" element="tns:SaveCarV2"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveCarV2_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveCarV2_OutputMessage">
+        <wsdl:part name="parameters" element="tns:SaveCarV2Response"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveCarsV2_InputMessage">
+        <wsdl:part name="parameters" element="tns:SaveCarsV2"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveCarsV2_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_SaveCarsV2_OutputMessage">
+        <wsdl:part name="parameters" element="tns:SaveCarsV2Response"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindPartReportsFreeText_InputMessage">
+        <wsdl:part name="parameters" element="tns:FindPartReportsFreeText"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindPartReportsFreeText_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FindPartReportsFreeText_OutputMessage">
+        <wsdl:part name="parameters" element="tns:FindPartReportsFreeTextResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FullTextFindPartReportsExOr_InputMessage">
+        <wsdl:part name="parameters" element="tns:FullTextFindPartReportsExOr"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FullTextFindPartReportsExOr_InputMessage_Headers">
+        <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ISoapIntegrationService_FullTextFindPartReportsExOr_OutputMessage">
+        <wsdl:part name="parameters" element="tns:FullTextFindPartReportsExOrResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="ISoapIntegrationService">
+        <wsdl:operation name="SavePart">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SavePart" message="tns:ISoapIntegrationService_SavePart_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SavePartResponse" message="tns:ISoapIntegrationService_SavePart_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SaveParts">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveParts" message="tns:ISoapIntegrationService_SaveParts_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SavePartsResponse" message="tns:ISoapIntegrationService_SaveParts_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="RemovePart">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/RemovePart" message="tns:ISoapIntegrationService_RemovePart_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/RemovePartResponse" message="tns:ISoapIntegrationService_RemovePart_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="CountChangedParts">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/CountChangedParts" message="tns:ISoapIntegrationService_CountChangedParts_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/CountChangedPartsResponse" message="tns:ISoapIntegrationService_CountChangedParts_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="FindChangedParts">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindChangedParts" message="tns:ISoapIntegrationService_FindChangedParts_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindChangedPartsResponse" message="tns:ISoapIntegrationService_FindChangedParts_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="FindChangedPartReports">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindChangedPartReports" message="tns:ISoapIntegrationService_FindChangedPartReports_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindChangedPartReportsResponse" message="tns:ISoapIntegrationService_FindChangedPartReports_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="FindChangedConnectedParts">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindChangedConnectedParts" message="tns:ISoapIntegrationService_FindChangedConnectedParts_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindChangedConnectedPartsResponse" message="tns:ISoapIntegrationService_FindChangedConnectedParts_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="FindDeletedConnectedParts">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindDeletedConnectedParts" message="tns:ISoapIntegrationService_FindDeletedConnectedParts_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindDeletedConnectedPartsResponse" message="tns:ISoapIntegrationService_FindDeletedConnectedParts_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="FindDeletedParts">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindDeletedParts" message="tns:ISoapIntegrationService_FindDeletedParts_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindDeletedPartsResponse" message="tns:ISoapIntegrationService_FindDeletedParts_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SavePartPhoto">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SavePartPhoto" message="tns:ISoapIntegrationService_SavePartPhoto_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SavePartPhotoResponse" message="tns:ISoapIntegrationService_SavePartPhoto_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="RemovePartPhoto">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/RemovePartPhoto" message="tns:ISoapIntegrationService_RemovePartPhoto_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/RemovePartPhotoResponse" message="tns:ISoapIntegrationService_RemovePartPhoto_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="FindChangedPartPhotos">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindChangedPartPhotos" message="tns:ISoapIntegrationService_FindChangedPartPhotos_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindChangedPartPhotosResponse" message="tns:ISoapIntegrationService_FindChangedPartPhotos_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="FindDeletedPartPhotos">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindDeletedPartPhotos" message="tns:ISoapIntegrationService_FindDeletedPartPhotos_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindDeletedPartPhotosResponse" message="tns:ISoapIntegrationService_FindDeletedPartPhotos_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="UploadPartPhoto">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/UploadPartPhoto" message="tns:ISoapIntegrationService_UploadPartPhoto_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/UploadPartPhotoResponse" message="tns:ISoapIntegrationService_UploadPartPhoto_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="DownloadPartPhoto">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/DownloadPartPhoto" message="tns:ISoapIntegrationService_DownloadPartPhoto_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/DownloadPartPhotoResponse" message="tns:ISoapIntegrationService_DownloadPartPhoto_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SaveCar">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveCar" message="tns:ISoapIntegrationService_SaveCar_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveCarResponse" message="tns:ISoapIntegrationService_SaveCar_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SaveCars">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveCars" message="tns:ISoapIntegrationService_SaveCars_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveCarsResponse" message="tns:ISoapIntegrationService_SaveCars_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetCar">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetCar" message="tns:ISoapIntegrationService_GetCar_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetCarResponse" message="tns:ISoapIntegrationService_GetCar_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="RemoveCar">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/RemoveCar" message="tns:ISoapIntegrationService_RemoveCar_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/RemoveCarResponse" message="tns:ISoapIntegrationService_RemoveCar_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="FindChangedCars">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindChangedCars" message="tns:ISoapIntegrationService_FindChangedCars_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindChangedCarsResponse" message="tns:ISoapIntegrationService_FindChangedCars_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="FindDeletedCars">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindDeletedCars" message="tns:ISoapIntegrationService_FindDeletedCars_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindDeletedCarsResponse" message="tns:ISoapIntegrationService_FindDeletedCars_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="UploadCarPhoto">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/UploadCarPhoto" message="tns:ISoapIntegrationService_UploadCarPhoto_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/UploadCarPhotoResponse" message="tns:ISoapIntegrationService_UploadCarPhoto_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="DownloadCarPhoto">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/DownloadCarPhoto" message="tns:ISoapIntegrationService_DownloadCarPhoto_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/DownloadCarPhotoResponse" message="tns:ISoapIntegrationService_DownloadCarPhoto_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SaveCarPhoto">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveCarPhoto" message="tns:ISoapIntegrationService_SaveCarPhoto_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveCarPhotoResponse" message="tns:ISoapIntegrationService_SaveCarPhoto_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="RemoveCarPhoto">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/RemoveCarPhoto" message="tns:ISoapIntegrationService_RemoveCarPhoto_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/RemoveCarPhotoResponse" message="tns:ISoapIntegrationService_RemoveCarPhoto_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="FindChangedCarPhotos">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindChangedCarPhotos" message="tns:ISoapIntegrationService_FindChangedCarPhotos_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindChangedCarPhotosResponse" message="tns:ISoapIntegrationService_FindChangedCarPhotos_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="FindDeletedCarPhotos">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindDeletedCarPhotos" message="tns:ISoapIntegrationService_FindDeletedCarPhotos_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindDeletedCarPhotosResponse" message="tns:ISoapIntegrationService_FindDeletedCarPhotos_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SaveReservations">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveReservations" message="tns:ISoapIntegrationService_SaveReservations_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveReservationsResponse" message="tns:ISoapIntegrationService_SaveReservations_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SaveReservationsEx">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveReservationsEx" message="tns:ISoapIntegrationService_SaveReservationsEx_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveReservationsExResponse" message="tns:ISoapIntegrationService_SaveReservationsEx_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="RemoveReservations">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/RemoveReservations" message="tns:ISoapIntegrationService_RemoveReservations_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/RemoveReservationsResponse" message="tns:ISoapIntegrationService_RemoveReservations_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="RemoveReservationsEx">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/RemoveReservationsEx" message="tns:ISoapIntegrationService_RemoveReservationsEx_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/RemoveReservationsExResponse" message="tns:ISoapIntegrationService_RemoveReservationsEx_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SaveOrder">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveOrder" message="tns:ISoapIntegrationService_SaveOrder_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveOrderResponse" message="tns:ISoapIntegrationService_SaveOrder_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SaveOrderEx">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveOrderEx" message="tns:ISoapIntegrationService_SaveOrderEx_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveOrderExResponse" message="tns:ISoapIntegrationService_SaveOrderEx_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SaveSubOrder">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveSubOrder" message="tns:ISoapIntegrationService_SaveSubOrder_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveSubOrderResponse" message="tns:ISoapIntegrationService_SaveSubOrder_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SaveSubOrderEx">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveSubOrderEx" message="tns:ISoapIntegrationService_SaveSubOrderEx_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveSubOrderExResponse" message="tns:ISoapIntegrationService_SaveSubOrderEx_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SaveOrderPaymentReference">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveOrderPaymentReference" message="tns:ISoapIntegrationService_SaveOrderPaymentReference_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveOrderPaymentReferenceResponse" message="tns:ISoapIntegrationService_SaveOrderPaymentReference_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="ShipOrderRowsEx">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/ShipOrderRowsEx" message="tns:ISoapIntegrationService_ShipOrderRowsEx_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/ShipOrderRowsExResponse" message="tns:ISoapIntegrationService_ShipOrderRowsEx_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="ShipOrderEx">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/ShipOrderEx" message="tns:ISoapIntegrationService_ShipOrderEx_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/ShipOrderExResponse" message="tns:ISoapIntegrationService_ShipOrderEx_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SetParcelNumbers">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SetParcelNumbers" message="tns:ISoapIntegrationService_SetParcelNumbers_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SetParcelNumbersResponse" message="tns:ISoapIntegrationService_SetParcelNumbers_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="ArchiveOrder">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/ArchiveOrder" message="tns:ISoapIntegrationService_ArchiveOrder_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/ArchiveOrderResponse" message="tns:ISoapIntegrationService_ArchiveOrder_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="ArchiveOrderEx">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/ArchiveOrderEx" message="tns:ISoapIntegrationService_ArchiveOrderEx_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/ArchiveOrderExResponse" message="tns:ISoapIntegrationService_ArchiveOrderEx_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="OrdersToArchive">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/OrdersToArchive" message="tns:ISoapIntegrationService_OrdersToArchive_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/OrdersToArchiveResponse" message="tns:ISoapIntegrationService_OrdersToArchive_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="CanArchiveOrder">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/CanArchiveOrder" message="tns:ISoapIntegrationService_CanArchiveOrder_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/CanArchiveOrderResponse" message="tns:ISoapIntegrationService_CanArchiveOrder_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetOrder">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetOrder" message="tns:ISoapIntegrationService_GetOrder_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetOrderResponse" message="tns:ISoapIntegrationService_GetOrder_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetSubOrder">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetSubOrder" message="tns:ISoapIntegrationService_GetSubOrder_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetSubOrderResponse" message="tns:ISoapIntegrationService_GetSubOrder_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="OrderExists">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/OrderExists" message="tns:ISoapIntegrationService_OrderExists_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/OrderExistsResponse" message="tns:ISoapIntegrationService_OrderExists_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="RemoveOrder">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/RemoveOrder" message="tns:ISoapIntegrationService_RemoveOrder_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/RemoveOrderResponse" message="tns:ISoapIntegrationService_RemoveOrder_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="RemoveOrderEx">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/RemoveOrderEx" message="tns:ISoapIntegrationService_RemoveOrderEx_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/RemoveOrderExResponse" message="tns:ISoapIntegrationService_RemoveOrderEx_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="Test">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/Test" message="tns:ISoapIntegrationService_Test_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/TestResponse" message="tns:ISoapIntegrationService_Test_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="FindPartReports">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartReports" message="tns:ISoapIntegrationService_FindPartReports_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartReportsResponse" message="tns:ISoapIntegrationService_FindPartReports_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="FindPartReportsEx">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartReportsEx" message="tns:ISoapIntegrationService_FindPartReportsEx_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartReportsExResponse" message="tns:ISoapIntegrationService_FindPartReportsEx_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="FindPartReportsExOr">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartReportsExOr" message="tns:ISoapIntegrationService_FindPartReportsExOr_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartReportsExOrResponse" message="tns:ISoapIntegrationService_FindPartReportsExOr_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="FindPartReportsExFreetext">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartReportsExFreetext" message="tns:ISoapIntegrationService_FindPartReportsExFreetext_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartReportsExFreetextResponse" message="tns:ISoapIntegrationService_FindPartReportsExFreetext_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="FindPartReportsExOrFreetext">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartReportsExOrFreetext" message="tns:ISoapIntegrationService_FindPartReportsExOrFreetext_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartReportsExOrFreetextResponse" message="tns:ISoapIntegrationService_FindPartReportsExOrFreetext_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="FindPartnersWithParts">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartnersWithParts" message="tns:ISoapIntegrationService_FindPartnersWithParts_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartnersWithPartsResponse" message="tns:ISoapIntegrationService_FindPartnersWithParts_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="FindParts">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindParts" message="tns:ISoapIntegrationService_FindParts_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartsResponse" message="tns:ISoapIntegrationService_FindParts_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetPart">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetPart" message="tns:ISoapIntegrationService_GetPart_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetPartResponse" message="tns:ISoapIntegrationService_GetPart_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="FindPartsEx">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartsEx" message="tns:ISoapIntegrationService_FindPartsEx_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartsExResponse" message="tns:ISoapIntegrationService_FindPartsEx_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="FindPartPhotos">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartPhotos" message="tns:ISoapIntegrationService_FindPartPhotos_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartPhotosResponse" message="tns:ISoapIntegrationService_FindPartPhotos_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="FindCarReports">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindCarReports" message="tns:ISoapIntegrationService_FindCarReports_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindCarReportsResponse" message="tns:ISoapIntegrationService_FindCarReports_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="FindCars">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindCars" message="tns:ISoapIntegrationService_FindCars_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindCarsResponse" message="tns:ISoapIntegrationService_FindCars_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="FindCarPhotos">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindCarPhotos" message="tns:ISoapIntegrationService_FindCarPhotos_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindCarPhotosResponse" message="tns:ISoapIntegrationService_FindCarPhotos_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="FindOrders">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindOrders" message="tns:ISoapIntegrationService_FindOrders_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindOrdersResponse" message="tns:ISoapIntegrationService_FindOrders_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="FindArchiveOrders">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindArchiveOrders" message="tns:ISoapIntegrationService_FindArchiveOrders_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindArchiveOrdersResponse" message="tns:ISoapIntegrationService_FindArchiveOrders_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="FindOrderStatuses">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindOrderStatuses" message="tns:ISoapIntegrationService_FindOrderStatuses_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindOrderStatusesResponse" message="tns:ISoapIntegrationService_FindOrderStatuses_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="FindPartners">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartners" message="tns:ISoapIntegrationService_FindPartners_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartnersResponse" message="tns:ISoapIntegrationService_FindPartners_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetBilkoder">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetBilkoder" message="tns:ISoapIntegrationService_GetBilkoder_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetBilkoderResponse" message="tns:ISoapIntegrationService_GetBilkoder_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetBilkodsnamn">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetBilkodsnamn" message="tns:ISoapIntegrationService_GetBilkodsnamn_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetBilkodsnamnResponse" message="tns:ISoapIntegrationService_GetBilkodsnamn_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetDelkoder">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetDelkoder" message="tns:ISoapIntegrationService_GetDelkoder_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetDelkoderResponse" message="tns:ISoapIntegrationService_GetDelkoder_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetDelkodsnamn">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetDelkodsnamn" message="tns:ISoapIntegrationService_GetDelkodsnamn_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetDelkodsnamnResponse" message="tns:ISoapIntegrationService_GetDelkodsnamn_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetFBSynkAvds">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetFBSynkAvds" message="tns:ISoapIntegrationService_GetFBSynkAvds_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetFBSynkAvdsResponse" message="tns:ISoapIntegrationService_GetFBSynkAvds_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetDelkodsStatus">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetDelkodsStatus" message="tns:ISoapIntegrationService_GetDelkodsStatus_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetDelkodsStatusResponse" message="tns:ISoapIntegrationService_GetDelkodsStatus_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetDelkodsStatusEx">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetDelkodsStatusEx" message="tns:ISoapIntegrationService_GetDelkodsStatusEx_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetDelkodsStatusExResponse" message="tns:ISoapIntegrationService_GetDelkodsStatusEx_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="FindChangedPartKeys">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindChangedPartKeys" message="tns:ISoapIntegrationService_FindChangedPartKeys_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindChangedPartKeysResponse" message="tns:ISoapIntegrationService_FindChangedPartKeys_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="FindDeletedPartKeys">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindDeletedPartKeys" message="tns:ISoapIntegrationService_FindDeletedPartKeys_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindDeletedPartKeysResponse" message="tns:ISoapIntegrationService_FindDeletedPartKeys_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="FindChangedCarKeys">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindChangedCarKeys" message="tns:ISoapIntegrationService_FindChangedCarKeys_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindChangedCarKeysResponse" message="tns:ISoapIntegrationService_FindChangedCarKeys_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetFolksamCom">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetFolksamCom" message="tns:ISoapIntegrationService_GetFolksamCom_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetFolksamComResponse" message="tns:ISoapIntegrationService_GetFolksamCom_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="CreateFolksamCom">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/CreateFolksamCom" message="tns:ISoapIntegrationService_CreateFolksamCom_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/CreateFolksamComResponse" message="tns:ISoapIntegrationService_CreateFolksamCom_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="FindFolksamComs">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindFolksamComs" message="tns:ISoapIntegrationService_FindFolksamComs_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindFolksamComsResponse" message="tns:ISoapIntegrationService_FindFolksamComs_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SaveFolksamComAsProcessed">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveFolksamComAsProcessed" message="tns:ISoapIntegrationService_SaveFolksamComAsProcessed_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveFolksamComAsProcessedResponse" message="tns:ISoapIntegrationService_SaveFolksamComAsProcessed_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="DeleteDelartArchiveById">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/DeleteDelartArchiveById" message="tns:ISoapIntegrationService_DeleteDelartArchiveById_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/DeleteDelartArchiveByIdResponse" message="tns:ISoapIntegrationService_DeleteDelartArchiveById_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="TestCurrentLoad">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/TestCurrentLoad" message="tns:ISoapIntegrationService_TestCurrentLoad_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/TestCurrentLoadResponse" message="tns:ISoapIntegrationService_TestCurrentLoad_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetPartStatuses">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetPartStatuses" message="tns:ISoapIntegrationService_GetPartStatuses_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/GetPartStatusesResponse" message="tns:ISoapIntegrationService_GetPartStatuses_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SendOrdersToPartners">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SendOrdersToPartners" message="tns:ISoapIntegrationService_SendOrdersToPartners_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SendOrdersToPartnersResponse" message="tns:ISoapIntegrationService_SendOrdersToPartners_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SavePartsV2">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SavePartsV2" message="tns:ISoapIntegrationService_SavePartsV2_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SavePartsV2Response" message="tns:ISoapIntegrationService_SavePartsV2_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="RemovePartV2">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/RemovePartV2" message="tns:ISoapIntegrationService_RemovePartV2_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/RemovePartV2Response" message="tns:ISoapIntegrationService_RemovePartV2_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SaveCarV2">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveCarV2" message="tns:ISoapIntegrationService_SaveCarV2_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveCarV2Response" message="tns:ISoapIntegrationService_SaveCarV2_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SaveCarsV2">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveCarsV2" message="tns:ISoapIntegrationService_SaveCarsV2_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/SaveCarsV2Response" message="tns:ISoapIntegrationService_SaveCarsV2_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="FindPartReportsFreeText">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartReportsFreeText" message="tns:ISoapIntegrationService_FindPartReportsFreeText_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FindPartReportsFreeTextResponse" message="tns:ISoapIntegrationService_FindPartReportsFreeText_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="FullTextFindPartReportsExOr">
+            <wsdl:input wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FullTextFindPartReportsExOr" message="tns:ISoapIntegrationService_FullTextFindPartReportsExOr_InputMessage"/>
+            <wsdl:output wsaw:Action="http://opencarpartinterface.org/2011/09/ISoapIntegrationService/FullTextFindPartReportsExOrResponse" message="tns:ISoapIntegrationService_FullTextFindPartReportsExOr_OutputMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>
