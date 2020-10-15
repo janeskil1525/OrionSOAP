@@ -9,7 +9,7 @@ use OrionSOAP;
 
 sub orionsoap {
 
-    OrionSOAP->new()->get_wsdl();
+    OrionSOAP->new()->test_xml_xs();
 }
 
 orionsoap();
